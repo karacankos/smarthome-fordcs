@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.swt.fordcs.FordCsFSM.Event;
-import com.swt.fordcs.FordCsFSM.State;
+import com.swt.fordcs.device.FordCSSettingDataX;
+import com.swt.fordcs.device.FordCsFSM.Event;
+import com.swt.fordcs.device.FordCsFSM.State;
 
 //reference: https://spring.io/guides/tutorials/rest/
 //http return codes: https://stackoverflow.com/questions/4268707/what-rest-put-post-delete-calls-should-return-by-a-convention

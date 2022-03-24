@@ -1,4 +1,4 @@
-package com.swt.fordcs;
+package com.swt.fordcs.device;
 
 // Ford Charging Station Finite State Machine - Model version: 2021.02-1
 // The FSM is a Singleton class!

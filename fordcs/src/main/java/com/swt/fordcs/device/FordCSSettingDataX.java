@@ -1,4 +1,4 @@
-package com.swt.fordcs;
+package com.swt.fordcs.device;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,6 +10,8 @@ import javax.persistence.Id;
 @Entity
 public class FordCSSettingDataX {
 	// PRESET
+	// ToDo: read PRESET from config file
+	//
 	private String P_deviceId = "CS_FORD_EVSE_RS"; // INVARIANT
 	private String P_connectorType = "SAEJ1772"; // INVARIANT
 	private Integer P_voltage = 220;		// Charging voltage	integer	208 <= [VAC] =< 240
@@ -21,8 +23,8 @@ public class FordCSSettingDataX {
 	private float P_cordLength = 25;		// Approximate cord length	Floating point	<= 25 [inch]
 	private String P_enclosure = "NEMA 4";	// INVARIANTCharging plug	string	= â€œNEMA 4â€
 	private String P_regulatory = "UL cUL CE CTick";	// Compliance	Certificated international norms	String	â€œUL cUL CE CTickâ€ 
-	
-	@Id
+	//
+	// PARAMETERS
 	private String deviceId ;  		// INVARIANT A unique device ID incorporates  the specification EVSE-RS String[16] = CS_FORD_EVSE_RS
 	private String connectorType ;	 // INVARIANT SAEJ1772	String[16]	
 	private Integer voltage ;		// Charging voltage	integer	208 <= [VAC] =< 240
@@ -123,44 +125,44 @@ public class FordCSSettingDataX {
 	}
 
 	// Validation methods
-	public boolean validateDeviceId(String deviceId) {
+	private boolean validateDeviceId(String deviceId) {
 		if ( deviceId.equals(P_deviceId)) return true;
 		return false;
 	}
-	public boolean validateConnectorType(String connectorType) {
+	private boolean validateConnectorType(String connectorType) {
 		if ( connectorType.equals(P_connectorType)) return true;
 		return false;
 	}
-	public boolean validateVoltage(Integer voltage) {
+	private boolean validateVoltage(Integer voltage) {
 		if (voltage >= 208 &&  voltage <= 240) return true;
 		return false;
 	}
-	public boolean validateFrequency(Integer frequency) {
+	private boolean validateFrequency(Integer frequency) {
 		if (frequency == 50 ||  frequency == 60) return true;
 		return false;
 	}
-	public boolean validateCurrent(Integer current) {
+	private boolean validateCurrent(Integer current) {
 		if (current >= 0 &&  current <= 30) return true;
 		return false;
 	}
-	public boolean validateOTemperature(Integer oTemperature) {
+	private boolean validateOTemperature(Integer oTemperature) {
 		if (oTemperature >= -20 &&  oTemperature <= +70) return true;
 		return false;
 	}
-	public boolean validateDimensions(String dimensions) {
+	private boolean validateDimensions(String dimensions) {
 		if (dimensions.equals(P_dimensions)) return true;
 		return false;
 	}
-	public boolean validateCordLength(Integer cordLength) {
+	private boolean validateCordLength(Integer cordLength) {
 		if (cordLength >= 0 &&  cordLength <= 25) return true;
 		return false;
 	}
-	public boolean validateEnclosure(String enclosure) {
+	private boolean validateEnclosure(String enclosure) {
 		if (enclosure.equals(P_enclosure)) return true;
 		return false;
 	}
 	
-	public boolean validateRegulatory(String regulatory) {
+	private boolean validateRegulatory(String regulatory) {
 		return true;
 	}
 	
