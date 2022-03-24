@@ -3,6 +3,8 @@ package com.swt.fordcs;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.swt.fordcs.device.FordCsFSM;
+
 //
 @SpringBootApplication
 public class FordCsApplication {

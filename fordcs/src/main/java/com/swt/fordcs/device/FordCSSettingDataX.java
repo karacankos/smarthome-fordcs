@@ -25,6 +25,7 @@ public class FordCSSettingDataX {
 	private String P_regulatory = "UL cUL CE CTick";	// Compliance	Certificated international norms	String	â€œUL cUL CE CTickâ€ 
 	//
 	// PARAMETERS
+	@Id
 	private String deviceId ;  		// INVARIANT A unique device ID incorporates  the specification EVSE-RS String[16] = CS_FORD_EVSE_RS
 	private String connectorType ;	 // INVARIANT SAEJ1772	String[16]	
 	private Integer voltage ;		// Charging voltage	integer	208 <= [VAC] =< 240

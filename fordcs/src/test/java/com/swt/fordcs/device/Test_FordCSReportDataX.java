@@ -1,4 +1,4 @@
-package com.swt.fordcs;
+package com.swt.fordcs.device;
 
 import org.junit.jupiter.api.Test;
 

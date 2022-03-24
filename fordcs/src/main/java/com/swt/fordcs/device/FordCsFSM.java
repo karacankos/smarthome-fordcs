@@ -1,19 +1,11 @@
 package com.swt.fordcs.device;
 
-// Ford Charging Station Finite State Machine - Model version: 2021.02-1
+import org.springframework.beans.factory.annotation.Value;
+
+// Ford Charging Station Finite State Machine - Model version: see application.properties
 // The FSM is a Singleton class!
 // Reference: Nested Switch Implementation in http://www.cs.fsu.edu/~lacher/courses/COP5385/lectures/QP3/script.html
 public class FordCsFSM {
-	// Singleton class
-	private void FordCsFSM () {}
-	private static FordCsFSM _this = null;
-	public static FordCsFSM getInstance () {
-		if (_this == null) {
-			_this = new FordCsFSM();
-			_this.init(); // set state to POWER_OFF
-		}
-		return _this;
-	}
 	public static enum Event {                      // enumeration for CParser signals
 		Power_on,
 		Ready_to_charge,
@@ -26,6 +18,7 @@ public class FordCsFSM {
 		Power_off  // init state
 	};
 	public static enum State {
+		INITIAL_STATE,
 		POWER_OFF,
 		POWER_PRESENT,
 		READY_TO_CHARGE,
@@ -33,9 +26,36 @@ public class FordCsFSM {
 		VEHICLE_CHARGING,
 		TROUBLE
 	}
+	// Singleton class
+	private void FordCsFSM () {}
+	private static FordCsFSM _this = null;
+	public static FordCsFSM getInstance () {
+		if (_this == null) {
+			_this = new FordCsFSM();
+			_this.init(); // set state to POWER_OFF
+		}
+		return _this;
+	}
+	@Value("${SWCnameFSM}")
+	private String sSWCnameFSM;
+	@Value("${SWCDescriptionFSM}")
+	private String sSWCDescriptionFSM;
+	@Value("${SWCValueFSM}")
+	private String sSWCValueFSM;
+	
+	public String getsSWCnameFSM() {
+		return sSWCnameFSM;
+	}
+	public String getsSWCDescriptionFSM() {
+		return sSWCDescriptionFSM;
+	}
+	public String getsSWCValueFSM() {
+		return sSWCValueFSM;
+	}
+
 	private State myState;
 	private void init() {
-	      transition_to(State.POWER_OFF);   // default transition
+		myState = State.INITIAL_STATE;   
 	}
 	private void transition_to(State target_state) {
 		myState = target_state;
@@ -54,6 +74,14 @@ public class FordCsFSM {
 			transition_to(State.POWER_OFF);
 		}
 		switch (myState) {
+			case INITIAL_STATE:
+				// only following event(s) are valid: power_off
+				switch (e) {
+					case Power_off:
+						transition_to(State.POWER_OFF);
+						break;
+				}
+				break;
 			case POWER_OFF:
 				// only following event(s) are valid: power_on
 				switch (e) {
