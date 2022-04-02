@@ -1,4 +1,0 @@
->1> The system web services should be re-visited and according to the spec implemented!
->2> Conduct consistency review (Spec <--> doc)
-
-check also https://karacankos.atlassian.net/l/c/CMre00Sd
