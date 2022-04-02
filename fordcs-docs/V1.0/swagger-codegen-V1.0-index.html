@@ -747,11 +747,7 @@
   "properties" : {
     "Status" : {
       "type" : "string",
-      "description" : "Unique status name on the plug UX, returns one of the states “POWER PRESENT\", “READY TO CHARGE”, “VEHICLE CONNECTED”, “VEHICLE CHARGING”, “TROUBLE”"
-    },
-    "GreenStatus" : {
-      "type" : "string",
-      "description" : "Current status , returns one of the corresponding status state  “GREEN”, “RED”,"
+      "description" : "Unique status name on the plug UX, returns one of the states “UX_POWER_PRESENT\", “UX_READY_TO_CHARGE”, “UX_VEHICLE_CONNECTED”, “UX_VEHICLE_CHARGING”, “UX_TROUBLE”. No status report over Green LED!"
     },
     "StatusDescription" : {
       "type" : "string",
@@ -813,7 +809,7 @@
                       <article id="api-Default-controlVehicleChargingStateUserEventPut-0" data-group="User" data-name="controlVehicleChargingStateUserEventPut" data-version="0">
                         <div class="pull-left">
                           <h1>controlVehicleChargingStateUserEventPut</h1>
-                          <p>triggers the FSM via a event</p>
+                          <p>triggers the FSM V1.0 via a event</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -859,7 +855,7 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         
         DefaultApi apiInstance = new DefaultApi();
-        String user = user_example; // String | The owner of the request, Valid user is "service"
+        String user = user_example; // String | The owner of the request, the valid user is "service"!
         String event = event_example; // String | Event triggers a transition to a new state. Valid events are "Power_on", "Ready_to_charge", "Vehicle_disconnected", "Start_charging", "Stop_charging", "Vehicle_connected", "Failure", and "Power_off"
         try {
             'String' result = apiInstance.controlVehicleChargingStateUserEventPut(user, event);
@@ -879,7 +875,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        String user = user_example; // String | The owner of the request, Valid user is "service"
+        String user = user_example; // String | The owner of the request, the valid user is "service"!
         String event = event_example; // String | Event triggers a transition to a new state. Valid events are "Power_on", "Ready_to_charge", "Vehicle_disconnected", "Start_charging", "Stop_charging", "Vehicle_connected", "Failure", and "Power_off"
         try {
             'String' result = apiInstance.controlVehicleChargingStateUserEventPut(user, event);
@@ -896,12 +892,12 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-controlVehicleChargingStateUserEventPut-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *user = user_example; // The owner of the request, Valid user is "service"
+                              <pre class="prettyprint"><code class="language-cpp">String *user = user_example; // The owner of the request, the valid user is "service"!
 String *event = event_example; // Event triggers a transition to a new state. Valid events are "Power_on", "Ready_to_charge", "Vehicle_disconnected", "Start_charging", "Stop_charging", "Vehicle_connected", "Failure", and "Power_off"
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
-// triggers the FSM via a event
+// triggers the FSM V1.0 via a event
 [apiInstance controlVehicleChargingStateUserEventPutWith:user
     event:event
               completionHandler: ^('String' output, NSError* error) {
@@ -919,7 +915,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var FordChargingStationApiModel = require('ford_charging_station_api_model');
 
 var api = new FordChargingStationApiModel.DefaultApi()
-var user = user_example; // {{String}} The owner of the request, Valid user is "service"
+var user = user_example; // {{String}} The owner of the request, the valid user is "service"!
 var event = event_example; // {{String}} Event triggers a transition to a new state. Valid events are "Power_on", "Ready_to_charge", "Vehicle_disconnected", "Start_charging", "Stop_charging", "Vehicle_connected", "Failure", and "Power_off"
 
 var callback = function(error, data, response) {
@@ -951,12 +947,12 @@ namespace Example
         {
 
             var apiInstance = new DefaultApi();
-            var user = user_example;  // String | The owner of the request, Valid user is "service"
+            var user = user_example;  // String | The owner of the request, the valid user is "service"!
             var event = event_example;  // String | Event triggers a transition to a new state. Valid events are "Power_on", "Ready_to_charge", "Vehicle_disconnected", "Start_charging", "Stop_charging", "Vehicle_connected", "Failure", and "Power_off"
 
             try
             {
-                // triggers the FSM via a event
+                // triggers the FSM V1.0 via a event
                 'String' result = apiInstance.controlVehicleChargingStateUserEventPut(user, event);
                 Debug.WriteLine(result);
             }
@@ -975,7 +971,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
-$user = user_example; // String | The owner of the request, Valid user is "service"
+$user = user_example; // String | The owner of the request, the valid user is "service"!
 $event = event_example; // String | Event triggers a transition to a new state. Valid events are "Power_on", "Ready_to_charge", "Vehicle_disconnected", "Start_charging", "Stop_charging", "Vehicle_connected", "Failure", and "Power_off"
 
 try {
@@ -993,7 +989,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $user = user_example; # String | The owner of the request, Valid user is "service"
+my $user = user_example; # String | The owner of the request, the valid user is "service"!
 my $event = event_example; # String | Event triggers a transition to a new state. Valid events are "Power_on", "Ready_to_charge", "Vehicle_disconnected", "Start_charging", "Stop_charging", "Vehicle_connected", "Failure", and "Power_off"
 
 eval { 
@@ -1014,11 +1010,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
-user = user_example # String | The owner of the request, Valid user is "service"
+user = user_example # String | The owner of the request, the valid user is "service"!
 event = event_example # String | Event triggers a transition to a new state. Valid events are "Power_on", "Ready_to_charge", "Vehicle_disconnected", "Start_charging", "Stop_charging", "Vehicle_connected", "Failure", and "Power_off"
 
 try: 
-    # triggers the FSM via a event
+    # triggers the FSM V1.0 via a event
     api_response = api_instance.control_vehicle_charging_state_user_event_put(user, event)
     pprint(api_response)
 except ApiException as e:
@@ -1046,7 +1042,7 @@ except ApiException as e:
                                                   </span>
                                   
                                                       <div class="inner description">
-                                                          The owner of the request, Valid user is &quot;service&quot;
+                                                          The owner of the request, the valid user is &quot;service&quot;!
                                                       </div>
                                               </div>
                                                   <div class="inner required">
@@ -1134,7 +1130,7 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 400 - FSM state could not set! </h3>
+                            <h3> Status: 400 - FSM V1.0 state could not be set! </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                             </ul>
@@ -1157,7 +1153,7 @@ except ApiException as e:
                       <article id="api-Default-monitorVehicleChargingStateUserGet-0" data-group="User" data-name="monitorVehicleChargingStateUserGet" data-version="0">
                         <div class="pull-left">
                           <h1>monitorVehicleChargingStateUserGet</h1>
-                          <p>Returns the current FSM state as a string</p>
+                          <p>Returns the current FSM V1.0 state as a string. This interface returns every FSM status!</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -1242,7 +1238,7 @@ public class DefaultApiExample {
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
-// Returns the current FSM state as a string
+// Returns the current FSM V1.0 state as a string. This interface returns every FSM status!
 [apiInstance monitorVehicleChargingStateUserGetWith:user
               completionHandler: ^('String' output, NSError* error) {
                             if (output) {
@@ -1294,7 +1290,7 @@ namespace Example
 
             try
             {
-                // Returns the current FSM state as a string
+                // Returns the current FSM V1.0 state as a string. This interface returns every FSM status!
                 'String' result = apiInstance.monitorVehicleChargingStateUserGet(user);
                 Debug.WriteLine(result);
             }
@@ -1353,7 +1349,7 @@ api_instance = swagger_client.DefaultApi()
 user = user_example # String | The owner of the request, Valid user is "service"
 
 try: 
-    # Returns the current FSM state as a string
+    # Returns the current FSM V1.0 state as a string. This interface returns every FSM status!
     api_response = api_instance.monitor_vehicle_charging_state_user_get(user)
     pprint(api_response)
 except ApiException as e:
@@ -1447,7 +1443,7 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                            <h3> Status: 400 - Current FSM state could not determined! </h3>
+                            <h3> Status: 400 - Current FSM V1.0 state could not determined! </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                             </ul>
@@ -1736,7 +1732,7 @@ except ApiException as e:
                       <article id="api-Default-runtimeStatusReportGet-0" data-group="User" data-name="runtimeStatusReportGet" data-version="0">
                         <div class="pull-left">
                           <h1>runtimeStatusReportGet</h1>
-                          <p>Returns RuntimeStatusReportDataX</p>
+                          <p>Returns RuntimeStatusReportData. This interface returns only UX related FSM V1.0 status!</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -1818,7 +1814,7 @@ public class DefaultApiExample {
                               <pre class="prettyprint"><code class="language-cpp">
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
-// Returns RuntimeStatusReportDataX
+// Returns RuntimeStatusReportData. This interface returns only UX related FSM V1.0 status!
 [apiInstance runtimeStatusReportGetWithCompletionHandler: 
               ^(inline_response_200_1 output, NSError* error) {
                             if (output) {
@@ -1867,7 +1863,7 @@ namespace Example
 
             try
             {
-                // Returns RuntimeStatusReportDataX
+                // Returns RuntimeStatusReportData. This interface returns only UX related FSM V1.0 status!
                 inline_response_200_1 result = apiInstance.runtimeStatusReportGet();
                 Debug.WriteLine(result);
             }
@@ -1923,7 +1919,7 @@ from pprint import pprint
 api_instance = swagger_client.DefaultApi()
 
 try: 
-    # Returns RuntimeStatusReportDataX
+    # Returns RuntimeStatusReportData. This interface returns only UX related FSM V1.0 status!
     api_response = api_instance.runtime_status_report_get()
     pprint(api_response)
 except ApiException as e:
