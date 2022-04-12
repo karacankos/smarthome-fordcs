@@ -1,0 +1,17 @@
+MAVEN commands
+--------------------------
+// call in project folder
+
+GENERATE runnable // output in ./target/
+--------------------------------------------------------
+> mvnw clean package 	// generate runnable from the scratch w/ test execution : 	
+> mvnw clean package -Dmaven.test.skip	// generate runnable from the scratch w/o test execution : 
+
+
+RUN * test cases  : 
+--------------------------
+> mvnw clean test					// RUN all test cases  
+> mvnw test -Dtest=SecondUnitTest 
+> mvnw test -Dtest=FirstUnitTest,SecondUnitTest		// RUN Multiple Test Cases
+> mvnw test -Dtest="com.baeldung.commandline.** "	// Run Test Cases in a Package
+
