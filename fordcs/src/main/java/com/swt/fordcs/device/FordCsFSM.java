@@ -24,7 +24,8 @@ public class FordCsFSM {
 		READY_TO_CHARGE,
 		VEHICLE_CONNECTED,
 		VEHICLE_CHARGING,
-		TROUBLE
+		TROUBLE,
+		UNKNOWN
 	}
 	// Singleton class
 	private void FordCsFSM () {}

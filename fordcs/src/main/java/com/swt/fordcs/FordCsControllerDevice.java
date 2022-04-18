@@ -6,17 +6,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.swt.fordcs.device.FordCSSettingDataX;
 import com.swt.fordcs.device.FordCsFSM.Event;
 import com.swt.fordcs.device.FordCsFSM.State;
+import com.swt.fordcs.services.FordCsService;
 
 //reference: https://spring.io/guides/tutorials/rest/
 //http return codes: https://stackoverflow.com/questions/4268707/what-rest-put-post-delete-calls-should-return-by-a-convention
-
+// webservice is specified in https://app.swaggerhub.com/apis/karacankos/fordcs/1.0-oas3
 @RestController
-public class FordCsController {
+@RequestMapping("/api/v1")
+public class FordCsControllerDevice {
 
  @Autowired
  private FordCsService fordCsService;
@@ -34,12 +37,5 @@ public class FordCsController {
    return new ResponseEntity<State>(fordCsService.transToState(event), HttpStatus.OK);
  }
  
-//call synopsis: http://localhost:8080/reportDeviceFactorySettings
- @GetMapping("/reportDeviceFactorySettings")
- ResponseEntity<FordCSSettingDataX> getDeviceFactorySettings() {
-
-	 return new ResponseEntity<>(fordCsService.getDeviceFactorySettings(), HttpStatus.OK);      
- }
-
 }
 

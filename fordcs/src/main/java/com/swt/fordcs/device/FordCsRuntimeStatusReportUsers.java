@@ -1,0 +1,50 @@
+package com.swt.fordcs.device;
+
+import java.util.ArrayList;
+
+// For the time being, the User list is populated hard coded! Later over configuration file!
+//
+// Users are defined in https://app.swaggerhub.com/apis/karacankos/fordcs/1.0-oas3
+//
+public class FordCsRuntimeStatusReportUsers {
+	
+    // Static variable reference of single_instance
+    // of type Singleton
+    private static FordCsRuntimeStatusReportUsers single_instance = null;
+ 
+    // Declaring a variable of type String
+    private ArrayList<String> userlist = new ArrayList<String>();
+ 
+    // Constructor
+    // populate the userlist
+    private FordCsRuntimeStatusReportUsers()
+    {
+        // add elements in the list
+    	userlist.add("Home_resident");
+    	userlist.add("Charging_Station_System_Operator");
+    	userlist.add("Building_Technology_System_Operator");
+    	userlist.add("BEA");
+    }
+ 
+    // Static method
+    // Static method to create instance of Singleton class
+    public static FordCsRuntimeStatusReportUsers getInstance()
+    {
+        if (single_instance == null) single_instance = new FordCsRuntimeStatusReportUsers();
+ 
+        return single_instance;
+    }
+    // returns the user if found, otherwise null!
+    public String findUser(String user) {
+        for (String element : userlist){
+            if (element.compareTo(user) == 0){
+                  return(user);
+            }
+         }
+        return (null);
+    }
+
+
+  
+
+}

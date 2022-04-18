@@ -1,4 +1,4 @@
-package com.swt.fordcs;
+package com.swt.fordcs.services;
 
 import org.springframework.stereotype.Service;
 
@@ -25,6 +25,7 @@ public class FordCsService {
 	public FordCSSettingDataX getDeviceFactorySettings() {
 		return fordCSSettingDataX;
 	}
+
 	
 
 }

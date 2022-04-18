@@ -1,0 +1,1 @@
+https://app.swaggerhub.com/apis/karacankos/fordcs/1.0-oas3
