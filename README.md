@@ -3,10 +3,13 @@
 
 # smarthome-fordcs
 
-![](https://karatech.files.wordpress.com/2022/04/cropped-2022-04-13-16_08_21-edup-project-foundation.png)
+![](https://raw.githubusercontent.com/karacankos/smarthome-fordcs/main/fordcs-docs/ford-charger-image.jpg)
 
-A Ford Charging Station is emulated for an educational project, short "edu-emulation". 
+__Software Education with templates & examples!__
 
-The goal of such edu-emulation projects is to show the application of software development and deployment practices in a semi real-life software project!
 
-The project documentation is a important as the code itself, and the consistency between them! 
+A Ford Charging Station is emulated for an educational software project, short "edu-emulation". 
+
+The goal of edu-emulation projects is to show the application of software development and deployment practices in a semi real-life software project!
+
+The project documentation is a important as the code itself, and the consistency between them!
