@@ -1,0 +1,2 @@
+create docs like https://www.st.com/content/ccc/resource/sales_and_marketing/presentation/product_presentation/group0/02/cb/7a/e7/8d/aa/40/1e/China_STM_MCU_Techincal_Day_5_Elektrobit_AUTOSAR_Introduction/files/China_STM_MCU_Techincal_Day_5_Elektrobit_AUTOSAR_Introduction.pdf/jcr:content/translations/en.China_STM_MCU_Techincal_Day_5_Elektrobit_AUTOSAR_Introduction.pdf
+while adding pure edu text-slides! 
