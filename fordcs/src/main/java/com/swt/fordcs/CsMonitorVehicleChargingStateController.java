@@ -9,24 +9,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.swt.fordcs.device.FordCsFSM.State;
-import com.swt.fordcs.services.FordCsServiceRuntimeStatusReport;
+import com.swt.fordcs.services.CsMonitorVehicleChargingStateService;
+
 
 //reference: https://spring.io/guides/tutorials/rest/
 //http return codes: https://stackoverflow.com/questions/4268707/what-rest-put-post-delete-calls-should-return-by-a-convention
 // webservice is specified in https://app.swaggerhub.com/apis/karacankos/fordcs/1.0-oas3
 
-//runtimeStatusReport/{user}
 @RestController
 @RequestMapping("/api/v1") 
-public class FordCsControllerRuntimeStatusReport {
+public class CsMonitorVehicleChargingStateController {
 
  @Autowired // Service
- private FordCsServiceRuntimeStatusReport fordCsServiceRuntimeStatusReport;
+ private CsMonitorVehicleChargingStateService csMonitorVehicleChargingStateService;
 
-// call synopsis: http://localhost:8080/api/v1/runtimeStatusReport/Home_resident // OR “Charging_Station_System_Operator”, "Building_Technology_System_Operator”,  “BEA”
- @GetMapping("/runtimeStatusReport/{user}")
+ //
+ // call synopsis: http://localhost:8080/api/v1/monitorVehicleChargingState/allowed_user 
+ // 			see /fordcs/src/main/java/com/swt/fordcs/device/FordCsMonitorVehicleChargingStateUsers.java	for {allowed users}
+ //
+ @GetMapping("/monitorVehicleChargingState/{user}")
  ResponseEntity<State> getRuntimeStatusReport(@PathVariable String user) {
-   State st = fordCsServiceRuntimeStatusReport.getRuntimeStatusReport(user);
+   State st = csMonitorVehicleChargingStateService.getMonitorVehicleChargingState(user);
    if (st.ordinal() != State.UNKNOWN.ordinal())
 	   return new ResponseEntity<State>(st, HttpStatus.OK);
    return new ResponseEntity<State>(st, HttpStatus.UNAUTHORIZED);

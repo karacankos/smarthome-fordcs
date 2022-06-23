@@ -1,4 +1,4 @@
-package com.swt.fordcs;
+package com.swt.fordcs.codecementary;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.swt.fordcs.device.FordCSSettingDataX;
 import com.swt.fordcs.device.FordCsFSM.Event;
 import com.swt.fordcs.device.FordCsFSM.State;
-import com.swt.fordcs.services.FordCsService;
+import com.swt.fordcs.services.CsFactorySettingService;
 
 //reference: https://spring.io/guides/tutorials/rest/
 //http return codes: https://stackoverflow.com/questions/4268707/what-rest-put-post-delete-calls-should-return-by-a-convention
@@ -22,9 +22,9 @@ import com.swt.fordcs.services.FordCsService;
 public class FordCsControllerDevice {
 
  @Autowired
- private FordCsService fordCsService;
+ private CsFactorySettingService fordCsService;
 
-//call synopsis: http://localhost:8080/provideVehicleChargingState
+//call synopsis: http://localhost:8080/api/v1/provideVehicleChargingState
  @GetMapping("/provideVehicleChargingState")
  ResponseEntity<State> provideVehicleChargingState() {
      return new ResponseEntity<State>(fordCsService.getState(), HttpStatus.OK);

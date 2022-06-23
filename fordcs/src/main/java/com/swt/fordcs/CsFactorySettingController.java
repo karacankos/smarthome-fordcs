@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.swt.fordcs.device.FordCSSettingDataX;
-import com.swt.fordcs.services.FordCsService;
+import com.swt.fordcs.services.CsFactorySettingService;
 
 //reference: https://spring.io/guides/tutorials/rest/
 //http return codes: https://stackoverflow.com/questions/4268707/what-rest-put-post-delete-calls-should-return-by-a-convention
@@ -20,14 +20,14 @@ import com.swt.fordcs.services.FordCsService;
  */
 @RestController
 @RequestMapping("/api/v1")
-public class FordCsControllerDeviceFactorySettings {
+public class CsFactorySettingController {
 
  @Autowired
- private FordCsService fordCsService;
+ private CsFactorySettingService fordCsService;
 
-//call synopsis: http://localhost:8080/api/v1/reportDeviceFactorySettings
- @GetMapping("/reportDeviceFactorySettings")
- ResponseEntity<FordCSSettingDataX> getDeviceFactorySettings() {
+//call synopsis: http://localhost:8080/api/v1/reportCsFactorySetting
+ @GetMapping("/reportCsFactorySetting")
+ ResponseEntity<FordCSSettingDataX> getReportCsFactorySetting() {
 
 	 return new ResponseEntity<>(fordCsService.getDeviceFactorySettings(), HttpStatus.OK);      
  }
