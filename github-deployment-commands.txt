@@ -1,0 +1,9 @@
+switch to C:\Temp\SU\SU-2022-eclipse-ws\smarthome-fordcs>
+
+> git status // see which files are manipulated!
+
+> git add . // add all manipulated files
+
+> git commit -m ”comment” // commit all manipulated files into local repo with the message “command”
+
+> git push  // copy all manipulated files to the remote repo!
