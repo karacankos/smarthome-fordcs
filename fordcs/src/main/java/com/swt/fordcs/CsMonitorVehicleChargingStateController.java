@@ -28,11 +28,11 @@ public class CsMonitorVehicleChargingStateController {
  // 			see /fordcs/src/main/java/com/swt/fordcs/device/FordCsMonitorVehicleChargingStateUsers.java	for {allowed users}
  //
  @GetMapping("/monitorVehicleChargingState/{user}")
- ResponseEntity<State> getRuntimeStatusReport(@PathVariable String user) {
+ ResponseEntity<String> getMonitorVehicleChargingState(@PathVariable String user) {
    State st = csMonitorVehicleChargingStateService.getMonitorVehicleChargingState(user);
    if (st.ordinal() != State.UNKNOWN.ordinal())
-	   return new ResponseEntity<State>(st, HttpStatus.OK);
-   return new ResponseEntity<State>(st, HttpStatus.UNAUTHORIZED);
+	   return new ResponseEntity<String>(st.name(), HttpStatus.OK);
+   return new ResponseEntity<String>(st.name(), HttpStatus.UNAUTHORIZED);
  }
  
 }

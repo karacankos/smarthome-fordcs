@@ -1,5 +1,8 @@
 package com.swt.fordcs.device;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Value;
 
 // Ford Charging Station Finite State Machine - Model version: see application.properties
@@ -27,6 +30,39 @@ public class FordCsFSM {
 		TROUBLE,
 		UNKNOWN
 	}
+	public static class StateDescription {
+		private static final Map<String, String> stateDescriptionMap = new HashMap<String, String>() {{
+		    put(State.INITIAL_STATE.name(), new String("the CS is initialized!"));
+		    put(State.POWER_OFF.name(), new String("the CS is in POWER_OFF!"));
+		    put(State.POWER_PRESENT.name(), new String("the CS POWER_PRESENT!"));
+		    put(State.READY_TO_CHARGE.name(), new String("the CS is READY_TO_CHARGE!"));
+		    put(State.VEHICLE_CONNECTED.name(), new String("the CS VEHICLE_CONNECTED!"));
+		    put(State.VEHICLE_CHARGING.name(), new String("the CS VEHICLE_CHARGING!"));
+		    put(State.TROUBLE.name(), new String("the CS is in TROUBLE!"));
+		    put(State.UNKNOWN.name(), new String("the CS state is UNKNOWN, no access to the state info!"));
+		}};
+		
+		
+		public String getState() {
+			return state;
+		}
+		public void setState(String state) {
+			this.state = state;
+		}
+		public String getStateDescription() {
+			return stateDescription;
+		}
+		public void setStateDescription(String stateDescription) {
+			this.stateDescription = stateDescription;
+		}
+		private String state;
+		private String stateDescription;
+		//
+		public StateDescription(State st) {
+			state = st.name();
+			stateDescription = stateDescriptionMap.get(state);
+		}		
+	};
 	// Singleton class
 	private void FordCsFSM () {}
 	private static FordCsFSM _this = null;

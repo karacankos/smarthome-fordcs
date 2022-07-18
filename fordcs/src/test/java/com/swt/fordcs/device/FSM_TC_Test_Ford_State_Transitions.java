@@ -9,6 +9,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import com.swt.fordcs.device.FordCsFSM.Event;
 import com.swt.fordcs.device.FordCsFSM.State;
+import com.swt.fordcs.device.FordCsFSM.StateDescription;
 
 //@TestMethodOrder(MethodOrderer.MethodName.class)
 class FSM_TC_Test_Ford_State_Transitions {
@@ -20,6 +21,9 @@ class FSM_TC_Test_Ford_State_Transitions {
 	@Test
 	@Order(1)
 	void FSM_TC_0_Test_Tansition_From_INITIAL_STATE_to_POWER_OFF() {
+		StateDescription sd = new FordCsFSM.StateDescription(State.INITIAL_STATE); 
+		System.out.println(sd.getStateDescription());
+		
 		assertEquals(fsm.triggerFMS(Event.Power_off),State.POWER_OFF);
 	}
 	@Test

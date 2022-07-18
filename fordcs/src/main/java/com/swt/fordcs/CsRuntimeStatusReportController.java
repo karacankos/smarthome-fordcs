@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.swt.fordcs.device.FordCsFSM;
 import com.swt.fordcs.device.FordCsFSM.State;
+import com.swt.fordcs.device.FordCsFSM.StateDescription;
 import com.swt.fordcs.services.CsRuntimeStatusReportService;
 
 //reference: https://spring.io/guides/tutorials/rest/
@@ -28,11 +30,13 @@ public class CsRuntimeStatusReportController {
  // 			see FordCsRuntimeStatusReportUsers.java	for {allowed users}
  //
  @GetMapping("/runtimeStatusReport/{user}")
- ResponseEntity<State> getRuntimeStatusReport(@PathVariable String user) {
-   State st = csRuntimeStatusReportService.getRuntimeStatusReport(user);
-   if (st.ordinal() != State.UNKNOWN.ordinal())
-	   return new ResponseEntity<State>(st, HttpStatus.OK);
-   return new ResponseEntity<State>(st, HttpStatus.UNAUTHORIZED);
+ ResponseEntity<StateDescription> getRuntimeStatusReport(@PathVariable String user) {
+	State st = csRuntimeStatusReportService.getRuntimeStatusReport(user);
+	StateDescription sd = new FordCsFSM.StateDescription(State.INITIAL_STATE); 
+
+	if (st.ordinal() != State.UNKNOWN.ordinal())
+		return new ResponseEntity<StateDescription>(sd, HttpStatus.OK);
+	return new ResponseEntity<StateDescription>(sd, HttpStatus.UNAUTHORIZED);
  }
  
 }
